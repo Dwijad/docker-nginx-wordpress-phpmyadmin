@@ -31,6 +31,18 @@ Run it
 
 $ docker-compose up -d
 
-The wordpress site will be available at http://yourdomain.tld
+The wordpress installer will be available at http://yourdomain.tld
+
+Choose-
+
+Database Name as: projectdb
+
+User Name: admin
+
+Password: password (You can change the password in docker-compose.yml)
+
+Database Host: projectdb
+
+
 
 The phpmyAdmin at http://SERVER_IP:8183
