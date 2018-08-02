@@ -5,11 +5,15 @@ Download the zip file and extract it.
 
 To host your own site change to NGINX directory
 
+````
 $ cd nginx
+````
 
 Modify the "server_name" directive in the following file and save it.
 
+````
 $ vi tuxlab.org.in
+
 
 ...
 
@@ -22,26 +26,30 @@ server_name "yourdomain.tld";
 
 ...
 
-
-Build the docker image
+````
+### Build the docker image
+````
 
 $ docker-compose build
 
-Run it
+````
 
+### Run it
+
+````
 $ docker-compose up -d
-
+````
 The wordpress installer will be available at http://yourdomain.tld
 
 Choose-
 
-Database Name as: projectdb
+Database Name as: ````projectdb````
 
-User Name: admin
+User Name: ````admin````
 
-Password: password (You can change the password in docker-compose.yml)
+Password: ````password```` (You can change the password in docker-compose.yml)
 
-Database Host: mariadb
+Database Host: ````mariadb````
 
 
 
