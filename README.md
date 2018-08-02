@@ -12,11 +12,16 @@ Modify the "server_name" directive in the following file and save it.
 $ vi tuxlab.org.in
 
 ...
+
 ...
 
+
 server_name "yourdomain.tld";
+
 ...
+
 ...
+
 
 Build the docker image
 
