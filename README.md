@@ -41,7 +41,7 @@ User Name: admin
 
 Password: password (You can change the password in docker-compose.yml)
 
-Database Host: projectdb
+Database Host: mariadb
 
 
 
