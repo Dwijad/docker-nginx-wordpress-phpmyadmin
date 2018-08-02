@@ -1,0 +1,60 @@
+version: '3'
+
+services:
+  nginx:
+     build: ./nginx/
+     container_name: nginx 
+     ports:
+       - "80:80"
+       - "443:443"
+     volumes:
+       - ./www:/var/www/html
+       - ./nginx/log:/var/log/nginx
+     networks:
+        webnet:
+
+
+  php:
+    build: ./php/
+    container_name: php
+    volumes:
+       - ./www:/var/www/html
+    expose:
+       - "9000"
+    networks:
+        webnet:
+
+  mariadb:
+    image: mariadb
+    container_name: mariadb
+    restart: always
+    volumes:
+      - ./mariadb:/var/lib/mysql
+
+    environment:
+      MYSQL_ROOT_PASSWORD: PASSWORD
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: PASSWORD
+      MYSQL_DATABASE: projectdb
+    expose:
+      - "3306"
+    networks:
+        webnet:
+
+  phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      restart: always
+      depends_on:
+      - mariadb
+      ports:
+       - 8183:80
+      environment:
+        MYSQL_USERNAME: admin
+        MYSQL_ROOT_PASSWORD: PASSWORD 
+        PMA_HOST: mariadb
+        PMA_ARBITRARY: 1
+      networks:
+        webnet:
+                
+networks:
+  webnet:
